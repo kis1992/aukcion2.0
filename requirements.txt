@@ -12,3 +12,4 @@ PyJWT==1.7.1
 pytz==2020.4
 sqlparse==0.4.1
 zipp==3.4.0
+django-crispy-forms==1.10.0

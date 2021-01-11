@@ -7,6 +7,9 @@ from account.views import AccountViewSet
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
+
+create_user = AccountViewSet.as_view({'post':'create_user'})
+
 router.register(r'accounts', AccountViewSet, basename='account')
 
 

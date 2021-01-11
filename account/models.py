@@ -12,4 +12,4 @@ class BaseUser(AbstractUser):
     phone_number = models.PositiveIntegerField(blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
     photo = models.FileField(upload_to=upload_avatar,null=True, blank=True)
-    money = models.PositiveIntegerField(null=True, blank=True)
+    money = models.PositiveIntegerField(null=True, blank=True, default=100)
