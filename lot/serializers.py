@@ -22,6 +22,9 @@ class PriceSerializers(serializers.ModelSerializer):
     class Meta:
         model = models.Price
         fields = ('id', 'lots', 'step_price', 'final_price', 'auto_price', 'last_owner')
+    
+    def clicker(self):
+        pass
 
 
 class CategorySerializers(serializers.ModelSerializer):

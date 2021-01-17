@@ -5,7 +5,7 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register(r'lots', LotViewSet, basename='lot')
-router.register(r'prices', PriceViewSet, basename='price')
+#router.register(r'prices', PriceViewSet, basename='price')
 urlpatterns = router.urls
 
 

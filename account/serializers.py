@@ -7,6 +7,15 @@ from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.base_user import BaseUserManager
+from django.core.mail import send_mail
+
+def send_password_mail(email,username,passwd):
+    send_mail(
+    subject="First authorization in aukcion.com",
+    message="Dear "+username+", your secret passwd is "+passwd,
+    from_email=email,
+    recipient_list=[email],
+    fail_silently=False,)
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -37,7 +46,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         print(password)
         user.set_password(password)
         user.save()
-
+        send_password_mail(user.email,user.username,password)
         return user
 
 
@@ -55,7 +64,7 @@ class AccountSerializers(serializers.ModelSerializer):
     
     class Meta:
         model = BaseUser
-        fields = ('id', 'username', 'password' , 'date_of_birth', 'phone_number', 'photo')
+        fields = ('id', 'username' , 'photo')
     
 
     def create(self, validated_data):
